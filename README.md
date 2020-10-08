@@ -87,4 +87,14 @@
 
 ```
     db.persons.insert({ name: "John Doe", country: "United States of America" })
+
+    db.persons.insert({ name: "Bia", country: "Brasil" })
+
+    db.persons.insert({ name: "Hannah", country: "UK" })
+```
+
+<h2 align="center">Listing</h2>
+
+```
+    db.persons.find()
 ```
