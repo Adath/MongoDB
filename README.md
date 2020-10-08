@@ -97,4 +97,6 @@
 
 ```
     db.persons.find()
+
+    db.persons.find().pretty()
 ```
