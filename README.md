@@ -51,7 +51,7 @@
     help
 ```
 
-<h2 align="center">Create Database / Collections [states, persons]</h2>
+<h2 align="center">Create Database / Collection [states, persons]</h2>
 
 ```
     use db
@@ -73,7 +73,7 @@
     show collections
 ```
 
-<h2 align="center">Droping Databases / Collections [states, persons]</h2>
+<h2 align="center">Droping Databases / Collection [states, persons]</h2>
 
 ```
     db.states.drop()
@@ -83,7 +83,7 @@
     db.persons.drop()
 ```
 
-<h2 align="center">Inserting</h2>
+<h2 align="center">Inserting Data</h2>
 
 ```
     db.persons.insert({ name: "John Doe", country: "United States of America" })
@@ -93,7 +93,7 @@
     db.persons.insert({ name: "Hannah", country: "UK" })
 ```
 
-<h2 align="center">Listing</h2>
+<h2 align="center">Listing Data</h2>
 
 ```
     db.persons.find()
