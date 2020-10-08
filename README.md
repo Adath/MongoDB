@@ -1,14 +1,29 @@
-<h1 align="center">MongoDB</h2>
+<p align="center"><img src="Mongodb.png" width="400"></p>
 
-<img src="Mongodb.png">
+<p align="center">Repository containing the queries developed in <a href="https://www.mongodb.com">👉 MongoDB 👈</a></p>
 
-<p align="center">Repository containing the queries developed in MongoDB</p>
+<p align="center">
+    <a href="https://opensource.org/licenses/MIT">
+        <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
+    <a href="#">
+        <img alt="License" src="https://img.shields.io/github/languages/count/MagicalStrangeQuark/MongoDB">
+    </a>
+    <a href="#">
+        <img alt="License" src="https://img.shields.io/github/last-commit/MagicalStrangeQuark/MongoDB">
+    </a>
+    <a href="#">
+        <img alt="License" src="https://img.shields.io/github/followers/MagicalStrangeQuark?style=social">
+    </a>
+</p>
 
-<h2>Website</h2>
+<h2 align="center">Website</h2>
 
-<https://www.mongodb.com>
+<h3 align="center">
+    <a href="https://www.mongodb.com">https://www.mongodb.com</a>
+</h3>
 
-<h2>Installation on Manjaro</h2>
+<h2 align="center">Installation on Manjaro</h2>
 
 ```
     git clone https://aur.archlinux.org/mongodb-bin.git
@@ -30,13 +45,13 @@
     systemctl enable mongodb
 ```
 
-<h2>Listing Commands</h2>
+<h2 align="center">Listing Commands</h2>
 
 ```
     help
 ```
 
-<h2>Create Database / Collections [states, persons]</h2>
+<h2 align="center">Create Database / Collections [states, persons]</h2>
 
 ```
     use db
@@ -58,7 +73,7 @@
     show collections
 ```
 
-<h2>Droping Databases / Collections [states, persons]</h2>
+<h2 align="center">Droping Databases / Collections [states, persons]</h2>
 
 ```
     db.states.drop()
@@ -68,7 +83,7 @@
     db.persons.drop()
 ```
 
-<h2>Inserting</h2>
+<h2 align="center">Inserting</h2>
 
 ```
     db.persons.insert({ name: "John Doe", country: "United States of America" })
