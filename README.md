@@ -70,4 +70,6 @@
 
 <h2>Inserting</h2>
 
-db.persons.insert({ name: "John Doe", country: "USA" })
+```
+    db.persons.insert({ name: "John Doe", country: "United States of America" })
+```
