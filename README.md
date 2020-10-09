@@ -118,3 +118,11 @@
 
     db.persons.find().pretty()
 ```
+
+<h2 align="center">Querys</h2>
+
+```sql
+    db.states.findOne({ name: "Rio Grande do Sul" })
+
+    db.states.find({ name: "Rio Grande do Sul" }).pretty()
+```
