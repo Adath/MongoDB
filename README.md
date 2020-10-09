@@ -140,3 +140,23 @@
 ```sql
     db.persons.find({ age: { $exists: true } })
 ```
+
+<h4 align="center">Skip / Limit</h4>
+
+```sql
+    db.persons.find().skip(0).limit(1)
+```
+
+<h4 align="center">Count</h4>
+
+```sql
+    db.persons.count()
+```
+
+```sql
+    db.persons.find({ country: "Brazil" }, { name: 1, country: 1, _id: 0 }).pretty()
+```
+
+```sql
+    db.states.find({ name: "Rio Grande do Sul"  }, { "cities.name": 1, "_id": 0 }).pretty()
+```
