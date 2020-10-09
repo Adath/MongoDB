@@ -25,67 +25,67 @@
 
 <h2 align="center">Installation on Manjaro</h2>
 
-```
+```bash
     git clone https://aur.archlinux.org/mongodb-bin.git
 ```
 
-```
+```bash
     cd mongodb-bin
 ```
 
-```
+```bash
     makepkg -si
 ```
 
-```
+```bash
     systemctl start mongodb
 ```
 
-```
+```bash
     systemctl enable mongodb
 ```
 
 <h2 align="center">Listing Commands</h2>
 
-```
+```sql
     help
 ```
 
 <h2 align="center">Create Database / Collection [states, persons]</h2>
 
-```
+```sql
     use db
 ```
 
-```
+```sql
     db.createCollection('states')
 ```
 
-```
+```sql
     db.createCollection('persons')
 ```
 
-```
+```sql
     show dbs
 ```
 
-```
+```sql
     show collections
 ```
 
 <h2 align="center">Droping Databases / Collection [states, persons]</h2>
 
-```
+```sql
     db.states.drop()
 ```
 
-```
+```sql
     db.persons.drop()
 ```
 
 <h2 align="center">Inserting Data</h2>
 
-```
+```sql
     db.persons.insert({ name: "John Doe", country: "United States of America" })
 
     db.persons.insert({ name: "Bia", country: "Brasil" })
@@ -113,7 +113,7 @@
 
 <h2 align="center">Listing Data</h2>
 
-```
+```sql
     db.persons.find()
 
     db.persons.find().pretty()
