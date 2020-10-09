@@ -91,6 +91,24 @@
     db.persons.insert({ name: "Bia", country: "Brasil" })
 
     db.persons.insert({ name: "Hannah", country: "UK" })
+
+    db.states.insert({
+        name: "Rio Grande do Sul",
+        cities: [
+            {
+                _id: ObjectId(),
+                name: "Novo Hamburgo"
+            },
+            {
+                _id: ObjectId(),
+                name: "Porto Alegre"
+            },
+            {
+                _id: ObjectId(),
+                name: "São Leopoldo"
+            }
+        ]
+    })
 ```
 
 <h2 align="center">Listing Data</h2>
