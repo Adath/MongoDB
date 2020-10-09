@@ -88,7 +88,9 @@
 ```sql
     db.persons.insert({ name: "John Doe", country: "United States of America" })
 
-    db.persons.insert({ name: "Bia", country: "Brasil" })
+    db.persons.insert({ name: "Bia", country: "Brazil" })
+
+    db.persons.insert({ name: "Bruna", country: "Brazil", age: 24 })
 
     db.persons.insert({ name: "Hannah", country: "UK" })
 
@@ -125,4 +127,16 @@
     db.states.findOne({ name: "Rio Grande do Sul" })
 
     db.states.find({ name: "Rio Grande do Sul" }).pretty()
+```
+
+```sql
+    db.persons.find({ $or: [{ name: "Bia" }, { name: "Hannah" }] }).pretty()
+```
+
+```sql
+    db.persons.find({ $and: [{ country: "Brazil" }, { name: "Bruna" }] }).pretty()
+```
+
+```sql
+    db.persons.find({ age: { $exists: true } })
 ```
