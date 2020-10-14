@@ -244,3 +244,15 @@
 ```sql
     db.persons.remove( { age: { $lt: 30 } } )
 ```
+
+<h4 align="center">Lookup</h4>
+
+```sql
+    db.createCollection('companies')
+```
+
+```sql
+    db.companies.insert( { name: "Bradesco", city_id: ObjectId("5f7fad613a3bfd6091d0962a") } )
+
+    db.companies.insert( { name: "Bradesco", state_id: ObjectId("5f7fad613a3bfd6091d0962c") } )
+```
