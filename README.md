@@ -230,3 +230,13 @@
 ```sql
     db.states.update( { name: "Rio Grande do Sul" }, { $push: { cities: { _id: ObjectId(), name: "Campo bom", population: 3000 } } } )
 ```
+
+<h4 align="center">Remove</h4>
+
+```sql
+    db.persons.remove( { name: "John Doe" }, 1)
+```
+
+```sql
+    db.persons.remove( { age: { $exists: false } }, 1 )
+```
