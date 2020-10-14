@@ -220,3 +220,13 @@
         { $project: { _id: "$cities._id" } }
     ]).pretty()
 ```
+
+<h4 align="center">Update</h4>
+
+```sql
+    db.persons.update( {  name: "Hannah" }, { $set: { age: 27 } } )
+```
+
+```sql
+    db.states.update( { name: "Rio Grande do Sul" }, { $push: { cities: { _id: ObjectId(), name: "Campo bom", population: 3000 } } } )
+```
