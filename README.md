@@ -94,20 +94,55 @@
 
     db.persons.insert({ name: "Hannah", country: "UK" })
 
+    db.persons.insert({ name: "Lucia", country: "Brazil" })
+
+    db.persons.insert({ name: "Maria", country: "Brazil" })
+
+    db.persons.insert({ name: "Roberta", country: "Brazil" })
+
     db.states.insert({
         name: "Rio Grande do Sul",
         cities: [
             {
                 _id: ObjectId(),
-                name: "Novo Hamburgo"
+                name: "Novo Hamburgo",
+                population: 1000
             },
             {
                 _id: ObjectId(),
-                name: "Porto Alegre"
+                name: "Porto Alegre",
+                population: 5000
             },
             {
                 _id: ObjectId(),
-                name: "São Leopoldo"
+                name: "São Leopoldo",
+                population: 2000
+            }
+        ]
+    })
+
+    db.states.insert({
+        name: "Santa Catarina",
+        cities: [
+            {
+                _id: ObjectId(),
+                name: "Florianópolis",
+                population: 1000
+            },
+            {
+                _id: ObjectId(),
+                name: "Joinville",
+                population: 4000
+            },
+            {
+                _id: ObjectId(),
+                name: "Blumenau",
+                population: 5000
+            },
+            {
+                _id: ObjectId(),
+                name: "Balneário Camboriú",
+                population: 7000
             }
         ]
     })
@@ -159,4 +194,20 @@
 
 ```sql
     db.states.find({ name: "Rio Grande do Sul"  }, { "cities.name": 1, "_id": 0 }).pretty()
+```
+
+<h4 align="center">Aggregate</h4>
+
+```sql
+    db.states.aggregate([
+        {   $project: { name: 1, "cities.name": 1, _id: 0  }  } 
+    ])
+```
+
+```sql
+    db.states.aggregate([
+        { $project: { population: { $sum: "$cities.population" }, name: 1, _id: 0 } },
+        { $group: { _id: null, total: { $sum: "$population" } } },
+        { $project : { _id: 0, total: 1 } }
+    ])
 ```
