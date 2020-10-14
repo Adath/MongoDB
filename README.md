@@ -240,3 +240,7 @@
 ```sql
     db.persons.remove( { age: { $exists: false } }, 1 )
 ```
+
+```sql
+    db.persons.remove( { age: { $lt: 30 } } )
+```
