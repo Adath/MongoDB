@@ -211,3 +211,12 @@
         { $project : { _id: 0, total: 1 } }
     ])
 ```
+
+```sql
+    db.states.aggregate([
+        { $match: { "cities.name": "Novo Hamburgo" } },
+        { $unwind: "$cities" },
+        { $match: { "cities.name": "Novo Hamburgo" } },
+        { $project: { _id: "$cities._id" } }
+    ]).pretty()
+```
