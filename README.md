@@ -23,7 +23,7 @@
     <a href="https://www.mongodb.com">https://www.mongodb.com</a>
 </h3>
 
-<h2 align="center">Installation on Manjaro</h2>
+<h2 align="center">Installation on <img src="Manjaro-logo.svg" width=50 height=50 alt="Manjaro Linux"></h2>
 
 ```bash
     git clone https://aur.archlinux.org/mongodb-bin.git
