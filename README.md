@@ -252,7 +252,7 @@
 ```
 
 ```sql
-    db.companies.insert( { name: "Bradesco", city_id: ObjectId("5f7fad613a3bfd6091d0962a") } )
+    db.companies.insert( { name: "Bradesco", city_id: ObjectId("5f8792cd8ddbbac1f99f977b") } )
 
-    db.companies.insert( { name: "Bradesco", state_id: ObjectId("5f7fad613a3bfd6091d0962c") } )
+    db.companies.insert( { name: "Bradesco", state_id: ObjectId("5f8792cd8ddbbac1f99f977e") } )
 ```
