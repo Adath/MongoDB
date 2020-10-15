@@ -263,3 +263,14 @@
         { $lookup: { from: "states", localField: "state_id", foreignField: "_id", as: "state"   } }
     ]).pretty()
 ```
+
+```sql
+    db.companies.aggregate([
+        { $match: { name: "Santander" } },
+        { $lookup: { from: "states", localField: "city_id", foreignField: "cities._id", as: "state" } },
+        { $unwind: "$state" },
+        { $unwind: "$state.cities" },
+        { $addFields: { sameCity: { $cmp: [ "$state.cities._id", "$city_id" ] } } },
+        { $match: { sameCity: 0 } }
+    ]).pretty()
+```
