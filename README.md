@@ -252,7 +252,14 @@
 ```
 
 ```sql
-    db.companies.insert( { name: "Bradesco", city_id: ObjectId("5f8792cd8ddbbac1f99f977b") } )
+    db.companies.insert( { name: "Santander", city_id: ObjectId("5f87961d8ddbbac1f99f9783") } )
+    
+    db.companies.insert( { name: "Bradesco", state_id: ObjectId("5f87961d8ddbbac1f99f9786") } )
+```
 
-    db.companies.insert( { name: "Bradesco", state_id: ObjectId("5f8792cd8ddbbac1f99f977e") } )
+```sql
+    db.companies.aggregate([
+        { $match: { name: "Bradesco" } },
+        { $lookup: { from: "states", localField: "state_id", foreignField: "_id", as: "state"   } }
+    ]).pretty()
 ```
