@@ -1,4 +1,4 @@
-<p align="center"><img src="Mongodb.png" width="400"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/MagicalStrangeQuark/MagicalStrangeQuark/master/assets/mongo.svg" width="400"></p>
 
 <p align="center">Repository containing the queries developed in <a href="https://www.mongodb.com">👉 MongoDB 👈</a></p>
 
@@ -23,7 +23,7 @@
     <a href="https://www.mongodb.com">https://www.mongodb.com</a>
 </h3>
 
-<h2 align="center">Installation on <img src="Manjaro-logo.svg" width=50 height=50 alt="Manjaro Linux"></h2>
+<h2 align="center">Installation on <img src="https://raw.githubusercontent.com/MagicalStrangeQuark/MagicalStrangeQuark/master/assets/manjaro.svg" width=50 height=50 alt="Manjaro Linux"></h2>
 
 ```bash
     git clone https://aur.archlinux.org/mongodb-bin.git
