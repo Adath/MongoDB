@@ -45,6 +45,28 @@
     systemctl enable mongodb
 ```
 
+<h2 align="center">Installation on <img src="https://raw.githubusercontent.com/MagicalStrangeQuark/MagicalStrangeQuark/master/assets/macos.svg" width=50 height=50 alt="MacOS"></h2>
+
+```bash
+sudo pecl install mongodb
+```
+
+```bash
+brew services start mongodb-community
+```
+
+```bash
+brew tap mongodb/brew
+```
+
+```bash
+brew info mongodb-community
+```
+
+```bash
+mongosh
+```
+
 <h2 align="center">Listing Commands</h2>
 
 ```sql
