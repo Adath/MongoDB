@@ -76,6 +76,10 @@ mongosh
 <h2 align="center">Create Database / Collection [states, persons]</h2>
 
 ```sql
+    use <database>
+```
+
+```sql
     use db
 ```
 
@@ -207,8 +211,14 @@ mongosh
 <h4 align="center">Count</h4>
 
 ```sql
-    db.persons.count()
+    db.persons.countDocuments()
 ```
+
+```sql
+    db.persons.estimatedDocumentCount()
+```
+
+<h4 align="center">Pretty</h4>
 
 ```sql
     db.persons.find({ country: "Brazil" }, { name: 1, country: 1, _id: 0 }).pretty()
@@ -222,7 +232,7 @@ mongosh
 
 ```sql
     db.states.aggregate([
-        {   $project: { name: 1, "cities.name": 1, _id: 0  }  } 
+        {   $project: { name: 1, "cities.name": 1, _id: 0  }  }
     ])
 ```
 
@@ -275,7 +285,7 @@ mongosh
 
 ```sql
     db.companies.insert( { name: "Santander", city_id: ObjectId("5f87961d8ddbbac1f99f9783") } )
-    
+
     db.companies.insert( { name: "Bradesco", state_id: ObjectId("5f87961d8ddbbac1f99f9786") } )
 ```
 
