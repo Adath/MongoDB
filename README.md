@@ -69,49 +69,49 @@ mongosh
 
 <h2 align="center">Listing Commands</h2>
 
-```sql
+```mongodb
     help
 ```
 
 <h2 align="center">Create Database / Collection [states, persons]</h2>
 
-```sql
+```mongodb
     use <database>
 ```
 
-```sql
+```mongodb
     use db
 ```
 
-```sql
+```mongodb
     db.createCollection('states')
 ```
 
-```sql
+```mongodb
     db.createCollection('persons')
 ```
 
-```sql
+```mongodb
     show dbs
 ```
 
-```sql
+```mongodb
     show collections
 ```
 
 <h2 align="center">Droping Databases / Collection [states, persons]</h2>
 
-```sql
+```mongodb
     db.states.drop()
 ```
 
-```sql
+```mongodb
     db.persons.drop()
 ```
 
 <h2 align="center">Inserting Data</h2>
 
-```sql
+```mongodb
     db.persons.insert({ name: "John Doe", country: "United States of America" })
 
     db.persons.insert({ name: "Bia", country: "Brazil" })
@@ -176,7 +176,7 @@ mongosh
 
 <h2 align="center">Listing Data</h2>
 
-```sql
+```mongodb
     db.persons.find()
 
     db.persons.find().pretty()
@@ -184,59 +184,59 @@ mongosh
 
 <h2 align="center">Querys</h2>
 
-```sql
+```mongodb
     db.states.findOne({ name: "Rio Grande do Sul" })
 
     db.states.find({ name: "Rio Grande do Sul" }).pretty()
 ```
 
-```sql
+```mongodb
     db.persons.find({ $or: [{ name: "Bia" }, { name: "Hannah" }] }).pretty()
 ```
 
-```sql
+```mongodb
     db.persons.find({ $and: [{ country: "Brazil" }, { name: "Bruna" }] }).pretty()
 ```
 
-```sql
+```mongodb
     db.persons.find({ age: { $exists: true } })
 ```
 
 <h4 align="center">Skip / Limit</h4>
 
-```sql
+```mongodb
     db.persons.find().skip(0).limit(1)
 ```
 
 <h4 align="center">Count</h4>
 
-```sql
+```mongodb
     db.persons.countDocuments()
 ```
 
-```sql
+```mongodb
     db.persons.estimatedDocumentCount()
 ```
 
 <h4 align="center">Pretty</h4>
 
-```sql
+```mongodb
     db.persons.find({ country: "Brazil" }, { name: 1, country: 1, _id: 0 }).pretty()
 ```
 
-```sql
+```mongodb
     db.states.find({ name: "Rio Grande do Sul"  }, { "cities.name": 1, "_id": 0 }).pretty()
 ```
 
 <h4 align="center">Aggregate</h4>
 
-```sql
+```mongodb
     db.states.aggregate([
         {   $project: { name: 1, "cities.name": 1, _id: 0  }  }
     ])
 ```
 
-```sql
+```mongodb
     db.states.aggregate([
         { $project: { population: { $sum: "$cities.population" }, name: 1, _id: 0 } },
         { $group: { _id: null, total: { $sum: "$population" } } },
@@ -244,7 +244,7 @@ mongosh
     ])
 ```
 
-```sql
+```mongodb
     db.states.aggregate([
         { $match: { "cities.name": "Novo Hamburgo" } },
         { $unwind: "$cities" },
@@ -255,48 +255,48 @@ mongosh
 
 <h4 align="center">Update</h4>
 
-```sql
+```mongodb
     db.persons.update( {  name: "Hannah" }, { $set: { age: 27 } } )
 ```
 
-```sql
+```mongodb
     db.states.update( { name: "Rio Grande do Sul" }, { $push: { cities: { _id: ObjectId(), name: "Campo bom", population: 3000 } } } )
 ```
 
 <h4 align="center">Remove</h4>
 
-```sql
+```mongodb
     db.persons.remove( { name: "John Doe" }, 1)
 ```
 
-```sql
+```mongodb
     db.persons.remove( { age: { $exists: false } }, 1 )
 ```
 
-```sql
+```mongodb
     db.persons.remove( { age: { $lt: 30 } } )
 ```
 
 <h4 align="center">Lookup</h4>
 
-```sql
+```mongodb
     db.createCollection('companies')
 ```
 
-```sql
+```mongodb
     db.companies.insert( { name: "Santander", city_id: ObjectId("5f87961d8ddbbac1f99f9783") } )
 
     db.companies.insert( { name: "Bradesco", state_id: ObjectId("5f87961d8ddbbac1f99f9786") } )
 ```
 
-```sql
+```mongodb
     db.companies.aggregate([
         { $match: { name: "Bradesco" } },
         { $lookup: { from: "states", localField: "state_id", foreignField: "_id", as: "state"   } }
     ]).pretty()
 ```
 
-```sql
+```mongodb
     db.companies.aggregate([
         { $match: { name: "Santander" } },
         { $lookup: { from: "states", localField: "city_id", foreignField: "cities._id", as: "state" } },
